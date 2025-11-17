@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Screenshot API</title>
+</head>
+<body>
+    <h1>Website Screenshot API</h1>
+    <form id="screenshot-form">
+        <input type="text" name="url" placeholder="Enter URL" required>
+        <button type="submit">Take Screenshot</button>
+    </form>
+    <br>
+    <img id="screenshot" src="" style="max-width: 100%;">
+
+    <script>
+        const form = document.getElementById('screenshot-form');
+        const screenshotImg = document.getElementById('screenshot');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const url = event.target.elements.url.value;
+            screenshotImg.src = `/screenshot?url=${encodeURIComponent(url)}`;
+        });
+    </script>
+</body>
+</html>
